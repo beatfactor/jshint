@@ -17,7 +17,7 @@ exports.bool = {
      * `Array`, `Date` and so on.
      *
      *     // jshint freeze:true
-     *     Array.prototype.count = function (value) { return 4; };
+     *     Array.prototype.count = function (value) { return 4 }
      *     // -> Warning: Extending prototype of native object: 'Array'.
      */
     freeze      : true,
@@ -39,14 +39,14 @@ exports.bool = {
      * the block consists of only one statement, for example:
      *
      *     while (day)
-     *       shuffle();
+     *       shuffle()
      *
      * However, in some circumstances, it can lead to bugs (you'd think that
      * `sleep()` is a part of the loop while in reality it is not):
      *
      *     while (day)
-     *       shuffle();
-     *       sleep();
+     *       shuffle()
+     *       sleep()
      */
     curly       : true,
 
@@ -133,10 +133,10 @@ exports.bool = {
      *
      *     function test() {
      *       if (true) {
-     *         var x = 0;
+     *         var x = 0
      *       }
      *
-     *       x += 1; // Default: 'x' used out of scope.
+     *       x += 1 // Default: 'x' used out of scope.
      *                 // No warning when funcscope:true
      *     }
      */
@@ -247,8 +247,8 @@ exports.bool = {
      *     // jshint undef:true
      *
      *     function test() {
-     *       var myVar = 'Hello, World';
-     *       console.log(myvar); // Oops, typoed here. JSHint with undef will complain
+     *       var myVar = 'Hello, World'
+     *       console.log(myvar) // Oops, typoed here. JSHint with undef will complain
      *     }
      *
      * If your variable is defined in another file, you can use the `global`
@@ -263,7 +263,7 @@ exports.bool = {
      *
      *     // jshint singleGroups: true
      *
-     *     delete(obj.attr); // Warning: Unnecessary grouping operator.
+     *     delete(obj.attr) // Warning: Unnecessary grouping operator.
      */
     singleGroups: false,
 
@@ -308,13 +308,13 @@ exports.bool = {
      *     // jshint multistr:true
      *
      *     var text = "Hello\
-     *     World"; // All good.
+     *     World" // All good.
      *
      *     text = "Hello
-     *     World"; // Warning, no escape character.
+     *     World" // Warning, no escape character.
      *
      *     text = "Hello\
-     *     World"; // Warning, there is a space after \
+     *     World" // Warning, there is a space after \
      *
      * @deprecated JSHint is limiting its scope to issues of code correctness.
      *             If you would like to enforce rules relating to code style,
@@ -411,7 +411,7 @@ exports.bool = {
      * sometimes used to produce singletons in JavaScript:
      *
      *     var singleton = new function() {
-     *       var privateVar;
+     *       var privateVar
      *
      *       this.publicMethod  = function () {}
      *       this.publicMethod2 = function () {}
@@ -502,7 +502,7 @@ exports.bool = {
      * This option suppresses warnings about missing semicolons, but only when
      * the semicolon is omitted for the last statement in a one-line block:
      *
-     *     var name = (function() { return 'Anton' }());
+     *     var name = (function() { return 'Anton' }())
      *
      * This is a very niche use case that is useful only when you use automatic
      * JavaScript code generators.
@@ -517,20 +517,20 @@ exports.bool = {
      *
      *     for (var i = 0; i < 10; i++) {
      *       nums[i] = function (j) {
-     *         return i + j;
+     *         return i + j
      *       };
      *     }
      *
-     *     nums[0](2); // Prints 12 instead of 2
+     *     nums[0](2) // Prints 12 instead of 2
      *
      * To fix the code above you need to copy the value of `i`:
      *
-     *     var nums = [];
+     *     var nums = []
      *
      *     for (var i = 0; i < 10; i++) {
      *       (function (i) {
      *         nums[i] = function (j) {
-     *             return i + j;
+     *             return i + j
      *         };
      *       }(i));
      *     }
@@ -778,20 +778,20 @@ exports.val = {
    *     // jshint maxstatements:4
    *
    *     function main() {
-   *       var i = 0;
-   *       var j = 0;
+   *       var i = 0
+   *       var j = 0
    *
    *       // Function declarations count as one statement. Their bodies
    *       // don't get taken into account for the outer function.
    *       function inner() {
-   *         var i2 = 1;
-   *         var j2 = 1;
+   *         var i2 = 1
+   *         var j2 = 1
    *
-   *         return i2 + j2;
+   *         return i2 + j2
    *       }
    *
-   *       j = i + j;
-   *       return j; // JSHint: Too many statements per function. (5)
+   *       j = i + j
+   *       return j // JSHint: Too many statements per function. (5)
    *     }
    */
   maxstatements: false,
@@ -802,14 +802,14 @@ exports.val = {
    *     // jshint maxdepth:2
    *
    *     function main(meaning) {
-   *       var day = true;
+   *       var day = true
    *
    *       if (meaning === 42) {
    *         while (day) {
-   *           shuffle();
+   *           shuffle()
    *
    *           if (tired) { // JSHint: Blocks are nested too deeply (3).
-   *               sleep();
+   *               sleep()
    *           }
    *         }
    *       }
@@ -861,12 +861,12 @@ exports.val = {
    *     // jshint unused:true
    *
    *     function test(a, b) {
-   *       var c, d = 2;
+   *       var c, d = 2
    *
-   *       return a + d;
+   *       return a + d
    *     }
    *
-   *     test(1, 2);
+   *     test(1, 2)
    *
    *     // Line 3: 'b' was defined but never used.
    *     // Line 4: 'c' was defined but never used.
